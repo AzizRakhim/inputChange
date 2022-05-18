@@ -1,9 +1,13 @@
 import React from 'react'
 
-function InputUser({onchange}) {
+function InputUser({setText}) {
+  const inputChangeHandler = (event) => {
+    setText(event.target.value)
+  }
+  
   return (
     <div>
-      <input type="text" className='inputText' name='text' onChange={onchange} />
+      <input type="text" className='inputText' name='text' onChange={inputChangeHandler} />
     </div>
   )
 }

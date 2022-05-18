@@ -1,30 +1,17 @@
-import { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import InputUser from './components/inputUser/inputUser';
 import OutputUser from './components/outputUser/outputUser';
 
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      username : "Aziz"
-    }
-  }
+function App(){
+  let [text, setText] = useState("Salom");
 
-  inputChangeHandler = (event) => {
-    this.setState({
-      username : event.target.value
-    })
-  }
-
-  render() {
-    return (
-      <>
-        <InputUser onchange={this.inputChangeHandler} />
-        <OutputUser username={this.state.username} />
-      </>
-    );
-  }
+  return (
+    <>
+      <InputUser setText={setText} />
+      <OutputUser username={text} />
+    </>
+  );
 }
 
 export default App;
